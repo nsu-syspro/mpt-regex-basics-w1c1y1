@@ -12,6 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor != 'github-classroom[bot]'
     steps:
+    - name: Set Locale
+      run: |
+        sudo apt-get update && sudo apt-get install tzdata locales -y   
+        sudo locale-gen ru_RU.UTF-8
+        sudo locale-gen ru_RU
+        locale -a
     - name: Checkout code
       uses: actions/checkout@v4
     - name: 'Task #1'
