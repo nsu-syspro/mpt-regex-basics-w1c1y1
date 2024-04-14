@@ -55,7 +55,7 @@
 ## Задание №5
 
 Файл [data/students.csv](/data/students.csv) содержит список студентов
-и соответствующих номеров студенческих билетов в формате [CSV](https://ru.wikipedia.org/wiki/CSV):
+и соответствующих номеров студенческих билетов в формате [CSV](https://en.wikipedia.org/wiki/Comma-separated_values):
 ```
 <Фамилия> <Имя>[ <Отчество>],<Номер>
 ```
