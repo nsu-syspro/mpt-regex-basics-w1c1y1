@@ -18,7 +18,7 @@ mkdir -p "$TMP_DIR/data"
 function test_solution() {
   EXPECTED="$1"
   ACTUAL=`bash "$ROOT_DIR/solution/task1.sh" 2>&1`
-  if [[ "$EXPECTED" != "$ACTUAL" ]] then
+  if [[ "$EXPECTED" != "$ACTUAL" ]]; then
     echo "Expected $EXPECTED but got $ACTUAL"
     exit 1
   fi
