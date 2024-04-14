@@ -1,0 +1,66 @@
+name: Autograding Tests
+'on':
+- push
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: 'Task #1'
+      id: task-1
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Task #1'
+        setup-command: ''
+        command: "./.test/task1/validate"
+        timeout: 1
+    - name: 'Task #2'
+      id: task-2
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Task #2'
+        setup-command: ''
+        command: "./.test/task2/validate"
+        timeout: 1
+    - name: 'Task #3'
+      id: task-3
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Task #3'
+        setup-command: ''
+        command: "./.test/task3/validate"
+        timeout: 1
+    - name: 'Task #4'
+      id: task-4
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Task #4'
+        setup-command: ''
+        command: "./.test/task4/validate"
+        timeout: 1
+    - name: 'Task #5'
+      id: task-5
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Task #5'
+        setup-command: ''
+        command: "./.test/task5/validate"
+        timeout: 1
+    - name: Autograding Reporter
+      uses: education/autograding-grading-reporter@v1
+      env:
+        TASK-1_RESULTS: "${{steps.task-1.outputs.result}}"
+        TASK-2_RESULTS: "${{steps.task-2.outputs.result}}"
+        TASK-3_RESULTS: "${{steps.task-3.outputs.result}}"
+        TASK-4_RESULTS: "${{steps.task-4.outputs.result}}"
+        TASK-5_RESULTS: "${{steps.task-5.outputs.result}}"
+      with:
+        runners: task-1,task-2,task-3,task-4,task-5
