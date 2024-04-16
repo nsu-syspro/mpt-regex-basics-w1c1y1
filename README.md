@@ -1,5 +1,7 @@
 # Знакомство с регулярными выражениями
 
+<img alt="points bar" align="right" height="36" src="../../blob/badges/.github/badges/points-bar.svg" />
+
 [![Очередная смешная картинка](https://imgs.xkcd.com/comics/regular_expressions.png)](https://xkcd.com/208)
 
 Для решения каждого из заданий необходимо выписать последовательность команд,
