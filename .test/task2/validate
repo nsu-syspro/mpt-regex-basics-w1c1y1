@@ -17,7 +17,14 @@ mkdir -p "$TMP_DIR/data"
 
 function test_solution() {
   EXPECTED="$1"
-  ACTUAL=`bash "$ROOT_DIR/solution/task2.sh" 2>&1`
+  set +e
+  ACTUAL=`bash -c "$ROOT_DIR/solution/task2.sh" 2>&1`
+  ACTUAL_EXIT=$?
+  set -e
+  if [[ $ACTUAL_EXIT ]]; then
+    echo "$ACTUAL"
+    exit $ACTUAL_EXIT
+  fi
   if [[ "$EXPECTED" != "$ACTUAL" ]]; then
     echo "Expected $EXPECTED but got $ACTUAL"
     exit 1
