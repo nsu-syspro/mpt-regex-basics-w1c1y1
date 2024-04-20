@@ -7,7 +7,7 @@ export LC_ALL=ru_RU.UTF-8
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 ROOT_DIR="$SCRIPT_DIR/../.."
 
-TMP_DIR=`mktemp -d`
+TMP_DIR=$(mktemp -d)
 
 ######################
 
@@ -18,7 +18,7 @@ mkdir -p "$TMP_DIR/data"
 function test_solution() {
   EXPECTED="$1"
   set +e
-  ACTUAL=`bash "$ROOT_DIR/solution/task2.sh" 2>&1`
+  ACTUAL=$(bash "$ROOT_DIR/solution/task2.sh" 2>&1)
   ACTUAL_EXIT=$?
   set -e
   if [[ $ACTUAL_EXIT -ne 0 ]]; then
