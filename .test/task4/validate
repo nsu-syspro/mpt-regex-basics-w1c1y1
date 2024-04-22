@@ -18,7 +18,7 @@ mkdir -p "$TMP_DIR/data"
 function test_solution() {
   EXPECTED="$1"
   bash "$ROOT_DIR/solution/task4.sh"
-  diff -U 1000 "$EXPECTED" "$TMP_DIR/data/blok_kids_edition.txt"
+  diff --color=always -U 1000 "$EXPECTED" "$TMP_DIR/data/blok_kids_edition.txt"
 }
 
 
