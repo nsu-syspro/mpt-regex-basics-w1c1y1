@@ -1,1 +1,1 @@
-grep -Eiwc "Пугачев[[:punct:]]*" data/pushkin.txt
+grep -o "\bПугачев\b" data/pushkin.txt | wc -l
