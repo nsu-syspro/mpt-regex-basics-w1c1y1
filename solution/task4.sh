@@ -1,1 +1,1 @@
-sed -E 's/Живи/Не спи/g; s/Умрёшь/Уснёшь/g' data/blok.txt > data/blok_kids_edition.txt
+sed -E 's/^([^ ]+) ([^ ]+)( [^ ]+)?,([0-9]+)$/\2 \1 (\4)/; s/^$$([^ ]+)$$ //' data/students.csv > data/students.txt
