@@ -1,2 +1,2 @@
-grep -cw "вина" data/pushkin.txt
+grep -o "\bвина\b" data/pushkin.txt | wc -l
 
